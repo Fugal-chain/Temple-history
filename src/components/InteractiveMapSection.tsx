@@ -137,7 +137,7 @@ export const InteractiveMapSection: React.FC<InteractiveMapProps> = ({ lang }) =
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* MAP CANVAS CONTAINER (8 Cols) */}
-          className="lg:col-span-8 relative rounded-3xl bg-gradient-to-b from-[#1F1D1B] via-[#151210] to-[#0A0806] border-2 border-[#D4AF37]/40 p-4 sm:p-6 shadow-2xl overflow-hidden min-h-[360px] sm:min-h-[580px] flex flex-col justify-between">
+          <div className="lg:col-span-8 relative rounded-3xl bg-gradient-to-b from-[#1F1D1B] via-[#151210] to-[#0A0806] border-2 border-[#D4AF37]/40 p-4 sm:p-6 shadow-2xl overflow-hidden min-h-[360px] sm:min-h-[580px] flex flex-col justify-between">
             
             {/* Map Spatial Architecture Background Diagram Labels */}
             <div className="absolute inset-0 pointer-events-none opacity-20">
