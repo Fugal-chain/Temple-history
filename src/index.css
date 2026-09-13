@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-maroon: #3B0A0A;
+    --color-maroon-dark: #240505;
+    --color-maroon-light: #5A1212;
+    --color-gold: #D4AF37;
+    --color-gold-light: #F3E5AB;
+    --color-gold-dark: #9A7B1C;
+    --color-vilvam: #1B4332;
+    --color-vilvam-light: #2D6A4F;
+    --color-ivory: #FAF6EE;
+    --color-ivory-dark: #EAE3D2;
+    --color-stone: #201D1A;
+    --color-stone-light: #332F2A;
+  }
+
+  body {
+    background-color: #0E0C0A;
+    color: #FAF6EE;
+    font-family: 'Noto Sans Tamil', 'Plus Jakarta Sans', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Cinzel', 'Noto Sans Tamil', serif;
+  }
+
+  .font-serif-en {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .font-tamil {
+    font-family: 'Noto Sans Tamil', 'Mukta Malar', sans-serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0E0C0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #3B0A0A;
+  border: 1px solid #D4AF37;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5A1212;
+}
+
+/* Flame Flicker Animation */
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.9));
+  }
+  25% {
+    opacity: 0.85;
+    transform: scale(0.97) translateY(1px);
+    filter: drop-shadow(0 0 10px rgba(234, 88, 12, 0.8));
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.03) translateY(-1px);
+    filter: drop-shadow(0 0 22px rgba(250, 204, 21, 1));
+  }
+  75% {
+    opacity: 0.9;
+    transform: scale(0.98) translateY(0.5px);
+    filter: drop-shadow(0 0 12px rgba(234, 88, 12, 0.85));
+  }
+}
+
+.animate-flicker {
+  animation: flicker 3.5s infinite ease-in-out;
+}
+
+/* Slow Pulse Glow */
+@keyframes templeGlow {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(212, 175, 55, 0.35);
+  }
+}
+
+.temple-card-glow {
+  animation: templeGlow 5s infinite ease-in-out;
+}
+
+/* Subtle Shimmer for Gold Accents */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA820A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vilvam-text-gradient {
+  background: linear-gradient(135deg, #A7F3D0 0%, #34D399 50%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom background pattern for traditional feel */
+.bg-temple-pattern {
+  background-color: #0E0C0A;
+  background-image: radial-gradient(rgba(212, 175, 55, 0.07) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+.bg-maroon-gradient {
+  background: linear-gradient(180deg, #1A0404 0%, #3B0A0A 50%, #150303 100%);
+}
+
+.bg-vilvam-gradient {
+  background: linear-gradient(180deg, #091912 0%, #1B4332 50%, #081710 100%);
+}
+
+/* Glassmorphism for temple overlay cards */
+.glass-temple {
+  background: rgba(26, 20, 16, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.glass-maroon {
+  background: rgba(59, 10, 10, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Print/A11y reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── MOBILE GLOBAL FIXES ───────────────────────────────────────────── */
+
+/* Prevent every section from causing horizontal scroll */
+section {
+  overflow-x: hidden;
+}
+
+/* Tamil long text — force wrap so it never overflows on xs screens */
+h1, h2, h3, .font-tamil {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Every box/element must allow itself to shrink inside flex/grid */
+* {
+  min-width: 0;
+}
+
+/* Hide scrollbar on touch devices */
+@media (pointer: coarse) {
+  ::-webkit-scrollbar { display: none; }
+}
+
+/* ── Timeline: give node room on very small screens ─────────────────── */
+@media (max-width: 639px) {
+  .timeline-rail-offset {
+    margin-left: 1rem !important;
+  }
+}
+
+/* ── Countdown boxes: never collapse below readable size ─────────────── */
+.countdown-unit {
+  min-width: 48px;
+}
+
+/* ── Hero festival ticker: wrap gracefully on xs ─────────────────────── */
+@media (max-width: 479px) {
+  .ticker-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ── Gallery filter pills: always wrap, never overflow ───────────────── */
+.filter-pill-row {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ── Map canvas height on xs ────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .map-canvas-xs {
+    min-height: 340px !important;
+    height: 340px !important;
+  }
+}
