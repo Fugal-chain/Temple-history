@@ -49,11 +49,11 @@ export const VilvamLogo: React.FC<VilvamLogoProps> = ({
       </div>
 
       {showText && (
-        <div className="flex flex-col">
-          <span className="font-heading font-bold text-[#FAF6EE] text-sm md:text-base leading-tight tracking-wide">
+        <div className="flex flex-col min-w-0 overflow-hidden">
+          <span className="font-heading font-bold text-[#FAF6EE] text-xs sm:text-sm md:text-base leading-tight tracking-wide truncate">
             {lang === 'ta' ? 'வில்வமூடு ஸ்ரீ சிவ சுடலைமாடன்' : 'Vilvamoodu Sri Siva Sudalaimada'}
           </span>
-          <span className="text-xs text-[#D4AF37] font-serif-en tracking-wider">
+          <span className="text-[10px] sm:text-xs text-[#D4AF37] font-serif-en tracking-wider truncate">
             {lang === 'ta' ? 'திருக்கோவில் • கீழ இராமன்புதூர்' : 'Swamy Temple • Kanyakumari'}
           </span>
         </div>

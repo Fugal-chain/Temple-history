@@ -42,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#0E0C0A]/95 backdrop-blur-md border-b border-[#D4AF37]/25 shadow-xl transition-all">
+    <header className="sticky top-0 z-40 w-full max-w-[100vw] overflow-hidden bg-[#0E0C0A]/95 backdrop-blur-md border-b border-[#D4AF37]/25 shadow-xl transition-all">
       {/* Top Info Bar */}
       <div className="hidden lg:flex items-center justify-between px-6 py-1 bg-gradient-to-r from-[#240505] via-[#1B4332] to-[#240505] text-xs text-[#FAF6EE]/80 border-b border-[#D4AF37]/15 font-serif-en">
         <div className="flex items-center gap-4">
@@ -71,13 +71,13 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20 gap-2">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-14 sm:h-18 gap-1 sm:gap-2">
           
           {/* Logo Brand */}
           <button
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-2 text-left focus:outline-none cursor-pointer group shrink-0"
+            className="flex items-center gap-2 text-left focus:outline-none cursor-pointer group shrink-0 min-w-0 overflow-hidden max-w-[55vw] sm:max-w-none"
           >
             <VilvamLogo size="md" showText={true} lang={lang} />
           </button>
@@ -103,23 +103,23 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Language Switcher & Controls */}
-          <div className="flex items-center gap-1.5 shrink-0">
+          <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
             
             {/* Global Language Toggle */}
             <div className="flex items-center rounded-full bg-[#1A1410] border border-[#D4AF37]/40 p-0.5">
               <button
                 onClick={() => setLang('ta')}
-                className={`px-2.5 py-1 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                className={`px-2 py-1 rounded-full text-[10px] sm:text-xs font-semibold transition-all cursor-pointer ${
                   lang === 'ta'
                     ? 'bg-[#3B0A0A] text-[#D4AF37] shadow-sm'
                     : 'text-gray-400 hover:text-white'
                 }`}
               >
-                தமிழ்
+                த
               </button>
               <button
                 onClick={() => setLang('en')}
-                className={`px-2.5 py-1 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                className={`px-2 py-1 rounded-full text-[10px] sm:text-xs font-semibold transition-all cursor-pointer ${
                   lang === 'en'
                     ? 'bg-[#1B4332] text-[#D4AF37] shadow-sm'
                     : 'text-gray-400 hover:text-white'
@@ -132,19 +132,19 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Replay Opening (Mobile/Tablet visible) */}
             <button
               onClick={onReplayOpening}
-              className="lg:hidden p-2 rounded-full bg-[#1A1410] text-[#D4AF37] hover:bg-[#3B0A0A] transition-colors cursor-pointer"
+              className="lg:hidden p-1.5 rounded-full bg-[#1A1410] text-[#D4AF37] hover:bg-[#3B0A0A] transition-colors cursor-pointer"
               title="Replay Sacred Opening"
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
 
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2 rounded-lg text-[#D4AF37] hover:bg-[#1A1410] transition-colors cursor-pointer"
+              className="xl:hidden p-1.5 rounded-lg text-[#D4AF37] hover:bg-[#1A1410] transition-colors cursor-pointer"
               aria-label="Toggle Navigation Menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
           </div>
 

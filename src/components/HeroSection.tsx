@@ -43,7 +43,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ setActiveTab, lang }) 
   }, [nextKodaiDate]);
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-between overflow-hidden bg-temple-pattern border-b border-[#D4AF37]/30">
+    <section className="relative min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-between overflow-hidden bg-temple-pattern border-b border-[#D4AF37]/30">
       
       {/* Background Visual Layer */}
       <div className="absolute inset-0 z-0">
@@ -61,37 +61,40 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ setActiveTab, lang }) 
       <div className="absolute bottom-1/3 right-10 w-96 h-96 bg-[#1B4332]/20 rounded-full blur-3xl pointer-events-none" />
 
       {/* Main Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 flex-1 flex flex-col justify-center items-center text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 pb-6 sm:pb-12 flex-1 flex flex-col justify-center items-center text-center">
         
         {/* Heritage Pill Tag */}
-        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#1A1410]/90 border border-[#D4AF37]/50 text-[10px] sm:text-xs text-[#D4AF37] mb-6 shadow-lg max-w-full">
+        <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#1A1410]/90 border border-[#D4AF37]/50 text-[10px] sm:text-xs text-[#D4AF37] mb-6 shadow-lg w-fit max-w-[90vw]">
           <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D4AF37] shrink-0" />
-          <span className="font-semibold tracking-wide text-center">
-            {lang === 'ta' ? 'ஏழு தலைமுறை குடும்ப குலதெய்வத் திருக்கோவில்' : 'Seven Generations Family Kula Deivam Sanctuary'}
+          <span className="font-semibold tracking-wide text-center leading-snug">
+            {lang === 'ta'
+              ? 'ஏழு தலைமுறை குடும்ப குலதெய்வத் திருக்கோவில்'
+              : <><span className="hidden sm:inline">Seven Generations Family Kula Deivam Sanctuary</span><span className="sm:hidden">7 Generations Kula Deivam</span></>
+            }
           </span>
         </div>
 
         {/* Temple Name Title */}
-        <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold font-tamil gold-text-gradient tracking-wide leading-tight max-w-5xl mb-4 drop-shadow-xl px-2">
+        <h1 className="text-xl sm:text-4xl lg:text-6xl font-bold font-tamil gold-text-gradient tracking-wide leading-snug max-w-5xl mb-3 drop-shadow-xl px-3 break-words">
           {templeData.name.ta}
         </h1>
 
-        <h2 className="text-sm sm:text-xl lg:text-2xl font-serif-en text-[#FAF6EE] tracking-widest uppercase mb-6 font-semibold max-w-3xl px-2">
+        <h2 className="text-[11px] sm:text-xl lg:text-2xl font-serif-en text-[#FAF6EE] tracking-wider sm:tracking-widest uppercase mb-5 font-semibold max-w-3xl px-3 leading-snug">
           {templeData.name.en}
         </h2>
 
         {/* Mottos */}
-        <div className="max-w-3xl mx-auto space-y-2 mb-10 px-4">
-          <p className="text-sm sm:text-xl font-tamil text-[#D4AF37] font-medium leading-relaxed">
+        <div className="max-w-3xl mx-auto space-y-2 mb-8 px-4">
+          <p className="text-xs sm:text-xl font-tamil text-[#D4AF37] font-medium leading-relaxed">
             "{templeData.motto.ta}"
           </p>
-          <p className="text-xs sm:text-base font-serif-en text-[#EAE3D2] italic tracking-wide">
+          <p className="text-[10px] sm:text-base font-serif-en text-[#EAE3D2] italic tracking-wide">
             "{templeData.motto.en}"
           </p>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12 w-full px-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-10 w-full px-4">
           <button
             onClick={() => setActiveTab('our-story')}
             className="w-full sm:w-auto group px-5 sm:px-6 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-[#3B0A0A] to-[#5A1212] border border-[#D4AF37] text-[#FAF6EE] font-medium text-sm shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all cursor-pointer flex items-center justify-center gap-2"
@@ -113,48 +116,56 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ setActiveTab, lang }) 
       </div>
 
       {/* Dynamic Festival Live Countdown Ticker Banner */}
-      <div className="relative z-10 bg-gradient-to-r from-[#240505] via-[#1B4332] to-[#240505] border-t border-[#D4AF37]/40 py-4 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col gap-3">
+      <div className="relative z-10 bg-gradient-to-r from-[#240505] via-[#1B4332] to-[#240505] border-t border-[#D4AF37]/40 py-3 sm:py-4 px-3 sm:px-4">
+        <div className="max-w-7xl mx-auto flex flex-col gap-2 sm:gap-3">
 
           {/* Festival label row */}
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-full bg-[#3B0A0A] text-[#D4AF37] border border-[#D4AF37]/40 shrink-0">
-              <Clock className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" style={{ animationDuration: '15s' }} />
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="p-1.5 sm:p-2 rounded-full bg-[#3B0A0A] text-[#D4AF37] border border-[#D4AF37]/40 shrink-0">
+              <Clock className="w-3.5 h-3.5 sm:w-5 sm:h-5 animate-spin" style={{ animationDuration: '15s' }} />
             </div>
-            <div className="min-w-0">
-              <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#D4AF37] font-semibold block">
-                {lang === 'ta' ? 'அடுத்த பிரதான திருவிழா' : 'Upcoming Major Festival'}
+            <div className="min-w-0 flex-1">
+              <span className="text-[9px] sm:text-xs uppercase tracking-widest text-[#D4AF37] font-semibold block">
+                {lang === 'ta' ? 'அடுத்த திருவிழா' : 'Upcoming Festival'}
               </span>
-              <span className="text-xs sm:text-sm font-bold text-[#FAF6EE] font-tamil block truncate">
-                {lang === 'ta' ? 'கோவில் கொடை மகா திருவிழா (தை மாதம்)' : 'Annual Kovil Kodai Festival (Thai Month)'}
+              <span className="text-[10px] sm:text-sm font-bold text-[#FAF6EE] font-tamil block leading-tight">
+                {lang === 'ta'
+                  ? 'கோவில் கொடை மகா திருவிழா'
+                  : <><span className="hidden sm:inline">Annual Kovil Kodai Festival (Thai Month)</span><span className="sm:hidden">Kovil Kodai Festival</span></>
+                }
               </span>
             </div>
           </div>
 
           {/* Countdown + button row */}
-          <div className="flex items-center justify-between gap-2 flex-wrap">
-            <div className="flex items-center gap-1.5 sm:gap-3">
+          <div className="flex items-center justify-between gap-2">
+            {/* Countdown boxes */}
+            <div className="flex items-center gap-1 sm:gap-2">
               {[
-                { val: timeLeft.days,    label: t.common.days },
-                { val: timeLeft.hours,   label: t.common.hours },
-                { val: timeLeft.minutes, label: t.common.minutes },
-                { val: timeLeft.seconds, label: t.common.seconds },
+                { val: timeLeft.days,    label: lang === 'ta' ? 'நாள்' : 'Days' },
+                { val: timeLeft.hours,   label: lang === 'ta' ? 'மணி' : 'Hrs' },
+                { val: timeLeft.minutes, label: lang === 'ta' ? 'நிமி' : 'Min' },
+                { val: timeLeft.seconds, label: lang === 'ta' ? 'வினா' : 'Sec' },
               ].map((item, i, arr) => (
                 <React.Fragment key={i}>
-                  <div className="flex flex-col items-center px-2 sm:px-3 py-1.5 rounded-lg bg-[#0E0C0A]/80 border border-[#D4AF37]/30 min-w-[44px] sm:min-w-[55px]">
-                    <span className="text-base sm:text-xl font-bold font-mono text-[#D4AF37]">{item.val}</span>
-                    <span className="text-[9px] sm:text-[10px] text-gray-400 uppercase">{item.label}</span>
+                  <div className="flex flex-col items-center justify-center w-[42px] sm:w-[58px] py-1.5 sm:py-2 rounded-lg bg-[#0E0C0A]/80 border border-[#D4AF37]/30">
+                    <span className="text-sm sm:text-xl font-bold font-mono text-[#D4AF37] leading-none">
+                      {String(item.val).padStart(2, '0')}
+                    </span>
+                    <span className="text-[8px] sm:text-[10px] text-gray-400 uppercase mt-0.5">{item.label}</span>
                   </div>
-                  {i < arr.length - 1 && <span className="text-[#D4AF37] font-bold text-sm">:</span>}
+                  {i < arr.length - 1 && (
+                    <span className="text-[#D4AF37] font-bold text-xs sm:text-sm mb-3">:</span>
+                  )}
                 </React.Fragment>
               ))}
             </div>
 
             <button
               onClick={() => setActiveTab('kovil-kodai')}
-              className="px-3 sm:px-4 py-2 rounded-full bg-[#3B0A0A] border border-[#D4AF37]/60 text-xs text-[#FAF6EE] hover:bg-[#5A1212] transition-colors cursor-pointer shrink-0"
+              className="px-2.5 sm:px-4 py-2 rounded-full bg-[#3B0A0A] border border-[#D4AF37]/60 text-[10px] sm:text-xs text-[#FAF6EE] hover:bg-[#5A1212] transition-colors cursor-pointer shrink-0 whitespace-nowrap"
             >
-              {lang === 'ta' ? 'நிகழ்ச்சி நிரல்' : 'View Schedule'}
+              {lang === 'ta' ? 'காண்க' : 'Schedule'}
             </button>
           </div>
 
